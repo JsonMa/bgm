@@ -1,5 +1,5 @@
 {
-  "name": "Koa2Vue2Blog",
+  "name": "cqbgm",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,6 +8,7 @@
     "pm2": "pm2 start bin/run ",
     "test": "mocha --reporter tap"
   },
+  
   "dependencies": {
     "co": "^4.6.0",
     "crypto": "0.0.3",
