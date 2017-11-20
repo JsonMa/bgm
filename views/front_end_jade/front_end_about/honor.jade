@@ -1,0 +1,60 @@
+// 集成模板
+extends ../front_end_layout
+block title
+    title 企业概况-重庆伊尔流体设备制造有限公司
+
+// 引入私有的css
+block css
+    link(rel='stylesheet', href='/css/front_end/front_end_about/about.css')
+
+block content
+    .banner-container
+    .content-container
+        .content-title
+            h3.title 荣誉资质   HONOR
+            p.subtitle 首页>>企业概况>>荣誉资质
+        .content-detail
+            .content-detail-left
+                .detail-title
+                    h4 荣誉资质
+                    hr
+                .detail-content-honor
+                    .detail-middle
+                        -if(honorData && honorData[0])
+                            ul
+                                -for(var i = 0; i < honorData.length; i++)
+                                    -var imgUrl = honorData[i].imgUrl.replace('public', '..');
+                                    li
+                                        a(href="../about/detail?page=#{pageNum}&id=#{honorData[i]._id}&type=honor")
+                                            img(src="#{imgUrl}")
+                                        p #{honorData[i].name}
+                        -else
+                            .none-info-container
+                                p 暂无相关信息
+                    .detail-bottom
+                        include ../front_end_paging.jade
+
+            .content-detail-right
+                .about-nav
+                    h4  栏目列表
+                    ul
+                        li
+                            a(href="../about") 公司简介
+                        li
+                            a(href="../about/develop") 发展历程
+                        li
+                            a(href="../about/honor") 荣誉资质
+                        li
+                            a(href="../about/enterprise") 企业风采
+                        li
+                            a(href="../about/speech") 董事长致辞
+                .hot-recommend
+                    h4 热点内容
+                    ul
+                        -for(var i = 0; i < hotRecommend.length; i++)
+                            li
+                                a(href="../news/detail?id=#{hotRecommend[i]._id}").title #{hotRecommend[i].title}
+                                span.title-date #{hotRecommend[i].formatCreatedTime}
+
+// 引入私有的js
+block js

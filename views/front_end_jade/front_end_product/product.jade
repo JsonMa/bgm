@@ -1,0 +1,110 @@
+// 集成模板
+extends ../front_end_layout
+block title
+    title 产品中心-重庆伊尔流体设备制造有限公司
+
+// 引入私有的css
+block css
+    link(rel='stylesheet', href='/css/front_end/front_end_product/product.css')
+
+block content
+    .banner-container
+    .content-container
+        .content-title
+            h3.title 产品中心  PRODUCT
+            p.subtitle 首页>>产品中心>>
+                case series
+                    when 'magnetic'
+                        span 磁力泵系列
+                    when 'pitot'
+                        span 皮托管泵系列
+                    when 'chemical'
+                        span 化工泵系列
+                    when 'seal'
+                        span 机械密封系列
+                    default
+                        span 磁力泵系列
+
+        .content-detail
+            .content-detail-left
+                .detail-title
+                    case series
+                        when 'magnetic'
+                            h4 磁力泵系列
+                        when 'pitot'
+                            h4 皮托管泵系列
+                        when 'chemical'
+                            h4 化工泵系列
+                        when 'seal'
+                            h4 机械密封系列
+                        default
+                            h4 磁力泵系列
+                    hr
+                .detail-content-contact
+                    -if (pumpData && pumpData[0])
+                        .detail-top.detail-top-pump
+                            .product-content
+                                ul.pump-list
+                                    - for (var index in pumpData)
+                                        li
+                                            - var pump = pumpData[index];
+                                            .product-content-left
+                                                a(href="../product/detail?page=#{pageNum}&id=#{pump._id}&type=pumps&series=#{series}")
+                                                    -var imgUrl = pump.imgUrl.replace('public', '..');
+                                                    img(src="#{imgUrl}" alt="#{pump.name}")
+                                            .product-content-right
+                                                a.product-name(href="../product/detail?page=#{pageNum}&id=#{pump._id}&type=pumps&series=#{series}") #{pump.name}#{pump.safeStage}
+                                                p 结构：#{pump.params.structure}
+                                                p 设计标准：#{pump.params.standard}
+                                                p 流量：#{pump.params.flow}
+                                                p 扬程：#{pump.params.high}
+                                                p 温度：#{pump.params.temperature}
+                                                p 压力：#{pump.params.pressure}
+                    -else if (sealData && sealData[0])
+                        .detail-top.detail-top-seal
+                            .product-content
+                                ul.seal-list
+                                    - for (var index in sealData)
+                                        li
+                                            - var seal = sealData[index];
+                                            .product-content-left
+                                                a(href="../product/detail?page=#{pageNum}&id=#{seal._id}&type=seals&series=#{series}")
+                                                    -var imgUrl = seal.imgUrl.replace('public', '..');
+                                                    img(src="#{imgUrl}" alt="#{seal.name}" style="width:230px; height:160px")
+                                            .product-content-right
+                                                a.product-name(href="../product/detail?page=#{pageNum}&id=#{seal._id}&type=seals&series=#{series}") #{seal.name}
+                                                //p 转速：#{seal.params.speed}
+                                                //p 轴径：#{seal.params.shaft}
+                                                //p 压力：#{seal.params.pressure}
+                                                //p 温度：#{seal.params.temperature}
+                    -else
+                        .detail-top
+                            .product-content
+                                .none-data-container
+                                    p 暂无相关产品
+
+                    .detail-bottom
+                        include ../front_end_paging.jade
+            .content-detail-right
+                .about-nav
+                    h4  栏目列表
+                    ul
+                        li
+                            a(href="../product/pumps?series=magnetic") 磁力泵系列
+                        li
+                            a(href="../product/pumps?series=chemical") 化工泵系列
+                        li
+                            a(href="../product/pumps?series=pitot") 皮托管泵系列
+                        li
+                            a(href="../product/seals") 机械密封系列
+                .hot-recommend
+                    h4 热点内容
+                    ul
+                        -for(var i = 0; i < hotRecommend.length; i++)
+                            li
+                                a(href="../news/detail?id=#{hotRecommend[i]._id}").title #{hotRecommend[i].title}
+                                span.title-date #{hotRecommend[i].formatCreatedTime}
+
+// 引入私有的js
+block js
+    //script(src='/js/front_end/front_end_product/pump.js')

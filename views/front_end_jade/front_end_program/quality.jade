@@ -1,0 +1,64 @@
+// 集成模板
+extends ../front_end_layout
+block title
+    title 工程技术中心-重庆伊尔流体设备制造有限公司
+
+// 引入私有的css
+block css
+    link(rel='stylesheet', href='/css/front_end/front_end_program/program.css')
+
+block content
+    .banner-container
+    .content-container
+        .content-title
+            h3.title 工程技术中心   ENGINEERING TECHNOLOGY CENTER
+            p.subtitle 首页>>工程技术中心>>质保控制
+        .content-detail
+            .content-detail-left
+                .detail-title
+                    h4 质保控制
+                    hr
+                .detail-content-quality
+                    .detail-middle
+                        div.quality-item
+                            h4.quality-title 质量保证：
+                            p.quality-value 确立质量意识，树立生产合格品是最经济的观念，确保资源优化，不断提升质量管理水平和产品实物质量。
+                        div.quality-item
+                            h4.quality-title 质量方针：
+                            p.quality-value 优质高效、不断创新、遵信守约、服务顾客；以最好的质量和最高的效率保持企业的生命力，以顾客为中心实现我们对顾客的承诺。
+                        div.quality-item
+                            h4.quality-title 质量控制：
+                            p.quality-value ISO9001认证,ISO14001	认证，泵设计与生产许可认证。
+                            p.quality-value 获得实用新型专利多项。
+                            p.quality-value 通过ISO14001环境管理体系认证。
+                            p.quality-value 通过ISO9001质量管理体系认证。
+                            p.quality-value 获得关于泵的生产许可证。
+                            p.quality-value 获得关于机械密封的生产许可证。
+                            p.quality-value 获得环保局排污许可证。
+                        div.quality-item
+                            h4.quality-title 产品研发：
+                            p.quality-value （1）拥有诸多具备多年流体机械经验的专业工程技术人员和强大的产品研发团队。
+                            p.quality-value （2）全过程实现CAD、CFD、ANSYS等辅助设计。采用具有自主知识产权的ERP管理系统进行合同、备档、生产、物流和生产BOM、工艺BOM管理。
+                            p.quality-value （3）产品符合ASME、RCC-M、AP1610、ANSI、ISO、GB、JB等国际国内标准。
+                            p.quality-value （4）拥有高精度的开、闭式泵性能测试平台，为用户的产品性能提供可靠保证。
+                        div.quality-item
+                            h4.quality-title 生产实况：
+                            p.quality-value  拥有多功能加工中心、铣床、镗床、等诸多的专业加工设备，能够满足不同工况的设备加工；拥有检测设备上百，套全过程实现质量跟踪，保证产品质量。
+            .content-detail-right
+                .about-nav
+                    h4  栏目列表
+                    ul
+                        li
+                            a(href="../program/quality") 质保控制
+                        li
+                            a(href="../program/question") 常见问题
+                .hot-recommend
+                    h4 热点内容
+                    ul
+                        -for(var i = 0; i < hotRecommend.length; i++)
+                            li
+                                a(href="../news/detail?id=#{hotRecommend[i]._id}").title  #{hotRecommend[i].title}
+                                span.title-date  #{hotRecommend[i].formatCreatedTime}
+
+// 引入私有的js
+block js

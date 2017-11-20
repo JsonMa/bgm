@@ -1,0 +1,193 @@
+// 左侧的菜单栏 Left side colum. contains the logo and sidebar
+aside.main-sidebar
+    // sidebar: style can be found in sidebar.less
+    section.sidebar
+        // Sidebar user panel
+        .user-panel
+            .pull-left.image
+                img.img-circle(src='../images/back_end/user2-160x160.jpg', alt='User Image')
+            .pull-left.info
+                p Admin
+                a(href='#')
+                    i.fa.fa-circle.text-success
+                    |  已登录
+        // search form
+        form.sidebar-form(action='#', method='get')
+            .input-group
+                input.form-control(type='text', name='q', placeholder='Search...')
+                span.input-group-btn
+                    button#search-btn.btn.btn-flat(type='submit', name='search')
+                        i.fa.fa-search
+
+        ul.sidebar-menu
+            -if(nav == 'index' || nav == enterprise)
+                li.active.treeview
+                    a(href='#')
+                        i.fa.fa-edit
+                        span 企业概况
+                        span.pull-right-container
+                            i.fa.fa-angle-left.pull-fright
+                    ul.treeview-menu
+                        -if (nav && nav == 'index')
+                            li.active
+                                a(href='/admin/index')
+                                    i.fa.fa-circle-o
+                                    | 荣誉资质
+                        -else
+                            li
+                                a(href='/admin/index')
+                                    i.fa.fa-circle-o
+                                    | 荣誉资质
+                        -if (nav && nav == 'enterprise')
+                            li.active
+                                a(href='/admin/enterprise')
+                                    i.fa.fa-circle-o
+                                    | 企业形象
+                        -else
+                            li
+                                a(href='/admin/enterprise')
+                                    i.fa.fa-circle-o
+                                    | 企业形象
+            -else
+                li.treeview
+                    a(href='#')
+                        i.fa.fa-edit
+                        span 企业概况
+                        span.pull-right-container
+                            i.fa.fa-angle-left.pull-fright
+                    ul.treeview-menu
+                        -if (nav && nav == 'index')
+                            li.active
+                                a(href='/admin/index')
+                                    i.fa.fa-circle-o
+                                    | 荣誉资质
+                        -else
+                            li
+                                a(href='/admin/index')
+                                    i.fa.fa-circle-o
+                                    | 荣誉资质
+                        -if (nav && nav == 'enterprise')
+                            li.active
+                                a(href='/admin/enterprise')
+                                    i.fa.fa-circle-o
+                                    | 企业形象
+                        -else
+                            li
+                                a(href='/admin/enterprise')
+                                    i.fa.fa-circle-o
+                                    | 企业形象
+        ul.sidebar-menu
+            -if(nav == 'news')
+                li.treeview
+                    a(href='#')
+                        i.fa.fa-newspaper-o
+                        span 新闻中心
+                        span.pull-right-container
+                            i.fa.fa-angle-left.pull-fright
+                    ul.treeview-menu
+                        li.active
+                            a(href='/admin/news')
+                                i.fa.fa-circle-o
+                                | 新闻管理
+            -else
+                li.treeview
+                    a(href='#')
+                        i.fa.fa-newspaper-o
+                        span 新闻中心
+                        span.pull-right-container
+                            i.fa.fa-angle-left.pull-fright
+                    ul.treeview-menu
+                        li
+                            a(href='/admin/news')
+                                i.fa.fa-circle-o
+                                | 新闻管理
+            -if(nav == 'pump' || nav == 'seal')
+                li.treeview
+                    a(href='#')
+                        i.fa.fa-th
+                        span 产品中心
+                        span.pull-right-container
+                            i.fa.fa-angle-left.pull-fright
+                    ul.treeview-menu
+                        -if (nav && nav == 'pump')
+                            li.active
+                                a(href='/admin/product?series=pump')
+                                    i.fa.fa-circle-o
+                                    | 泵类产品管理
+                            li
+                                a(href='/admin/product?series=seal')
+                                    i.fa.fa-circle-o
+                                    | 密封产品管理
+                        -else
+                            li
+                                a(href='/admin/product?series=pump')
+                                    i.fa.fa-circle-o
+                                    | 泵类产品管理
+                            li.active
+                                a(href='/admin/product?series=seal')
+                                    i.fa.fa-circle-o
+                                    | 密封产品管理
+            -else
+                li.treeview
+                    a(href='#')
+                        i.fa.fa-th
+                        span 产品中心
+                        span.pull-right-container
+                            i.fa.fa-angle-left.pull-fright
+                    ul.treeview-menu
+                        li
+                            a(href='/admin/product?series=pump')
+                                i.fa.fa-circle-o
+                                | 泵类产品管理
+                        li
+                            a(href='/admin/product?series=seal')
+                                i.fa.fa-circle-o
+                                | 密封产品管理
+            -if(nav == 'contact')
+                li.treeview
+                    a(href='#')
+                        i.fa.fa-phone
+                        span 联系我们
+                        span.pull-right-container
+                            i.fa.fa-angle-left.pull-right
+                    ul.treeview-menu
+                        li.active
+                            a(href='/admin/contact')
+                                i.fa.fa-circle-o
+                                | 留言管理
+            -else
+                li.treeview
+                    a(href='#')
+                        i.fa.fa-phone
+                        span 联系我们
+                        span.pull-right-container
+                            i.fa.fa-angle-left.pull-right
+                    ul.treeview-menu
+                        li
+                            a(href='/admin/contact')
+                                i.fa.fa-circle-o
+                                | 信息管理
+            -if(nav == 'join')
+                li.treeview
+                    a(href='#')
+                        i.fa.fa-users
+                        span 加入我们
+                        span.pull-right-container
+                            i.fa.fa-angle-left.pull-right
+                    ul.treeview-menu
+                        li.active
+                            a(href='/admin/join')
+                                i.fa.fa-circle-o
+                                | 招聘管理
+            -else
+                li.treeview
+                    a(href='#')
+                        i.fa.fa-users
+                        span 加入我们
+                        span.pull-right-container
+                            i.fa.fa-angle-left.pull-right
+                    ul.treeview-menu
+                        li
+                            a(href='/admin/join')
+                                i.fa.fa-circle-o
+                                | 招聘管理

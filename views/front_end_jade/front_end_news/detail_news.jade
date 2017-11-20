@@ -1,0 +1,65 @@
+// 集成模板
+extends ../front_end_layout
+block title
+    title 新闻资讯-重庆伊尔流体设备制造有限公司
+
+// 引入私有的css
+block css
+    link(rel='stylesheet', href='/css/front_end/front_end_news/news_detail.css')
+
+block content
+    .banner-container
+    .content-container
+        .content-title
+            h3.title 新闻资讯  NEWS CENTER
+            p.subtitle 首页>>新闻资讯>>新闻详情
+        .content-detail
+            .content-detail-left
+                .detail-title
+                    h4 新闻详情
+                    hr
+                .detail-content-news
+                    .detail-top
+                        .news-title
+                            h4 #{nowNews.data[0].title}
+                            .origin 作者：
+                                span #{nowNews.data[0].author}
+                            .time 时间：
+                                span #{nowNews.data[0].formatCreatedTime}
+                        .news-abstract
+                            p #{nowNews.data[0].subTitle}
+                        -var content = nowNews.data[0].content
+                        .news-content !{content}
+                    .detail-bottom
+                        .news-from 文章来源：
+                            span.news-from-value #{nowNews.data[0].origin}
+                        .key-word 本文关键词：
+                            span.key-word-value #{nowNews.data[0].tags}
+                        .news-switch
+                            if lastNews.data[0]
+                                .news-switch-left 上一篇：
+                                    a(href="../news/detail?id=#{lastNews.data[0]._id}").news-switch-previous #{lastNews.data[0].title}
+                            else
+                                .news-switch-left 上一篇：
+                                    a(href="javascript:void(0)").news-switch-previous 无相关新闻
+                            if nextNews.data[0]
+                                .news-switch-right 下一篇：
+                                    a(href="../news/detail?id=#{nextNews.data[0]._id}").news-switch-next #{nextNews.data[0].title}
+                            else
+                                .news-switch-right 下一篇：
+                                    a(href="javascript:void(0)").news-switch-next 无相关新闻
+            .content-detail-right
+                .about-nav
+                    h4  栏目列表
+                    ul
+                        li
+                            a(href="../news/company") 公司新闻
+                        li
+                            a(href="../news/industry") 行业新闻
+                .hot-recommend
+                    h4 热点内容
+                    ul
+                        -for(var i = 0; i < hotRecommend.length; i++)
+                            li
+                                a(href="../news/detail?id=#{hotRecommend[i]._id}").title #{hotRecommend[i].title}
+                                span.title-date #{hotRecommend[i].formatCreatedTime}

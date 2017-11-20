@@ -1,0 +1,19 @@
+header.main-header
+    a.logo(href='#')
+        span.logo-mini
+            b Y
+            | IR
+        span.logo-lg
+            b CQYIR
+            | 管理系统
+    nav.navbar.navbar-static-top
+        a.sidebar-toggle(href='#', data-toggle='offcanvas', role='button')
+            span.sr-only Toggle navigation
+        .navbar-custom-menu
+            ul.nav.navbar-nav
+                li.dropdown.user.user-menu
+                    a.dropdown-toggle(href='#', data-toggle='dropdown')
+                        img.user-image(src='../images/back_end/user2-160x160.jpg', alt='User Image')
+                        span.hidden-xs 管理员
+                li
+                    a.log-out(href='/admin/logout') 退出

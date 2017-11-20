@@ -1,0 +1,65 @@
+
+/* 此文件放置前端所有页面公有的样式 */
+body {
+  padding: 0;
+  margin: 0;
+  ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,dl,dt,dd,input{
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+  }
+  h1 {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  h2 {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  h3 {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  p {
+    font-size: 12px;
+  }
+  font-size:12px;
+  font-family: 'Microsoft YaHei',sans-serif;
+  img{border:none;}
+  li{list-style:none;}
+  input,select,textarea{
+    outline:none;
+    border: 1px solid #eee;
+  }
+  a{text-decoration:none;}
+
+  /* 内容区域共有的宽度 */
+  .front_end_item_container {
+    width: 1000px;
+    margin: 0 auto;
+  }
+  .content-wrapper {
+    //margin-top: 70px;
+  }
+
+  /* 文字颜色强调 */
+  .emphasize-color {
+    color: #ff7f00
+  }
+
+  /* 清除浮动 */
+  .clearfix:after{
+    content:"";
+    clear:both;
+  }
+  .clearfix{zoom:1;}
+
+  /* 没有数据的显示 */
+  .none-data-container {
+    margin: 20px 0;
+    text-align: center;
+  }
+}
+@import "./front_end_footer.less";
+@import "./front_end_header.less";
+@import "./front_end_paging.less";

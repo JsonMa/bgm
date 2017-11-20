@@ -1,0 +1,80 @@
+// 集成模板
+extends ../front_end_layout
+block title
+    title 联系我们-重庆伊尔流体设备制造有限公司
+
+// 引入私有的css
+block css
+    link(rel='stylesheet', href='/css/front_end/front_end_contact/contact.css')
+    link(rel='stylesheet', href='/plugins/parsley/parsley.css')
+    link(rel='stylesheet', href='/plugins/common/common.css')
+
+block content
+    .banner-container#dituContent
+    .content-container
+        .content-title
+            h3.title 联系我们   CONTACT
+            p.subtitle 首页>>联系我们
+        .content-detail
+            .content-detail-left
+                .detail-title
+                    h4 联系我们
+                    hr
+                .detail-content-contact
+                    .detail-top
+                        i.fa.fa-map-marker(aria-hidden='true')
+                        .detail-top-right
+                            p 重庆伊尔流体设备制造有限公司
+                            p Chongqing YIR Fluid Equipment Manufacturing Co., Ltd.
+                    .detail-middle
+                        ul
+                            li
+                                span 电话：023-68329999
+                            li
+                                span 传真：023-68325032
+                            li
+                                span 手机：13908342789
+                            li
+                                span 邮编：400707
+                            li
+                                span 邮箱：cqyir@vip.163.com
+                            li
+                                span 地址：重庆市北碚区童家溪镇同兴北路198号
+                    .detail-bottom
+                        p.detail-bottom-title 请告诉我们您的需求
+                        form#contact_form(data-parsley-validate="validate")
+                            ul.contact-container
+                                li
+                                    label 您的姓名：
+                                        input.form-control.required(type="text" name="name" data-parsley-length="[2, 20]" data-parsley-user data-parsley-trigger="change" data-parsley-user-message="名称长度至少为2个字" data-parsley-error-message="名称长度至少为2个字" required="")
+                                li
+                                    label 联系电话：
+                                        input.required(type="text" name="phone" data-parsley-phone data-parsley-trigger="change" data-parsley-phone-message="无效的手机号码" required="" data-parsley-error-message="手机号码为必填项")
+                                li
+                                    label 电子邮件：
+                                        input(type="text" name="email" data-parsley-email data-parsley-trigger="change" data-parsley-email-message="请输入正确的邮箱格式" required="" data-parsley-error-message="邮箱地址为必填项")
+                                li
+                                    span 您的留言：
+                                    textarea(rows="10" cols="55" name="content" data-parsley-trigger="change" data-parsley-minlength="10"  data-parsley-error-message="留言内容太短，需至少应包含10个字" required="")
+                            button.btn(type="submit") 提交留言
+            .content-detail-right
+                .about-nav
+                    h4  栏目列表
+                    ul
+                        li
+                            a(href="../contact") 联系我们
+                .hot-recommend
+                    h4 热点内容
+                    ul
+                        -for(var i = 0; i < hotRecommend.length; i++)
+                            li
+                                a(href="../news/detail?id=#{hotRecommend[i]._id}").title #{hotRecommend[i].title}
+                                span.title-date #{hotRecommend[i].formatCreatedTime}
+
+// 引入私有的js
+block js
+    script(src='/plugins/parsley/parsley.js')
+    script(src='/plugins/common/common.js')
+    script(type='text/javascript', src='http://api.map.baidu.com/api?key=&v=1.1&services=true')
+    script(src='/js/front_end/front_end_contact/contact.js')
+

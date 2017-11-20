@@ -1,0 +1,87 @@
+// 集成模板
+extends ./back_end_layout
+block title
+    title 重庆伊尔流体后台管理系统
+
+// 引入私有的css
+block css
+    link(rel='stylesheet' href="../css/back_end/about.css")
+    link(rel='stylesheet', href='/plugins/zyupload/skins/zyupload-1.0.0.css')
+block content
+    // 引入共有的aside
+    include ./back_end_aside.jade
+
+    // Content Wrapper. Contains page content
+    .content-wrapper
+        // Content Header (Page header)
+        section.content-header
+            h1
+                | 企业概况
+                small 荣誉资质
+            button.add-honor.btn.btn-primary 新增
+        // Main content
+        section.content
+            .row
+                .col-xs-12
+                    .box.table-container
+                        .box-header
+                            h3.box-title 荣誉列表
+                                small  荣誉资质
+                        .box-body
+                            table#example.table.table-bordered.table-hover(style="text-align: center")
+                                thead
+                                    tr
+                                        th 序号
+                                        th 荣誉名称
+                                        th 荣誉概述
+                                        th 创建时间
+                                        th 修改时间
+                                        th 图片地址
+                                        th 状态
+                                        th 操作
+                                tbody
+                                    -var baseIndex = (pageNum - 1) * pageSize;
+                                    -for (var i = 0; i < honorData.length; i++)
+                                        tr
+                                            -var index = baseIndex + i + 1;
+                                            td #{index}
+                                            td.honorName #{honorData[i].name}
+                                            - if(honorData[i].Summary)
+                                                td.honorSummary #{honorData[i].Summary}
+                                            -else
+                                                td.honorSummary --
+                                            td.honorCteateTime #{honorData[i].createdTimeDetail}
+                                            td.honorUpdateTime #{honorData[i].updateTimeDetail}
+                                            td(imgUrl = "#{honorData[i].imgUrl}").honorImgUrl.btn-detail 查看图片
+                                            td
+                                                -if(honorData[i].hidden)
+                                                    i(status="false" id="#{honorData[i]._id}").fa.fa-play.button-switch-hide.item-switch
+                                                -else
+                                                    i(status="true" id="#{honorData[i]._id}").fa.fa-stop.button-switch-show.item-switch
+                                            td
+                                                //a(id="#{honorData[i]._id}").btn.btn-primary.btn-margin
+                                                //    span
+                                                a(id="#{honorData[i]._id}" href="../admin/honor_detail?id=#{honorData[i]._id}&page=#{pageNum}").btn.btn-primary.btn-margin
+                                                    span 编辑
+                                                a(id="#{honorData[i]._id}" imgUrl = "#{honorData[i].imgUrl}").btn.btn-default.btn-margin.btn-delete
+                                                    span 删除
+                        include ../front_end_jade/front_end_paging.jade
+            .row
+                #myModal.modal
+                    .modal-dialog(role='document')
+                        .modal-content
+                            .modal-header
+                                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                    span(aria-hidden='true') ×
+                                h4#myModalLabel.modal-title Modal title
+                            .modal-body
+                                | ...
+                            .modal-footer
+                                button.btn.btn-default(type='button', data-dismiss='modal') Close
+                                button.btn.btn-primary(type='button') Save changes
+
+// 引入私有的js
+block js
+    script(src='/plugins/zyupload/zyupload.basic-1.0.0.js')
+    script(src='/js/back_end/index.js')
+

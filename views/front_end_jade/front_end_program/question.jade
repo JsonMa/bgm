@@ -1,0 +1,79 @@
+// 集成模板
+extends ../front_end_layout
+block title
+    title 工程技术中心-重庆伊尔流体设备制造有限公司
+
+// 引入私有的css
+block css
+    link(rel='stylesheet', href='/css/front_end/front_end_program/program.css')
+
+block content
+    .banner-container
+    .content-container
+        .content-title
+            h3.title 工程技术中心   ENGINEERING TECHNOLOGY CENTER
+            p.subtitle 首页>>工程技术中心>>常见问题
+        .content-detail
+            .content-detail-left
+                .detail-title
+                    h4 常见问题
+                    hr
+                .detail-content-question
+                    .detail-middle
+                        div.question-item
+                            span.question-title 问：
+                            span.question-value 重庆伊尔流体设备制造有限公司以生产什么产品为主？
+                        div.question-item
+                            span.question-title 答：
+                            span.question-value 皮托管泵、磁力泵、化工泵、机械密封等。
+                        div.question-item
+                            span.question-title 问：
+                            span.question-value 产品主要应用在哪些领域？
+                        div.question-item
+                            span.question-title 答：
+                            span.question-value 核电站、石油、化工、化肥、钢铁焦化、煤化工、汽车制造、食品医药等领域。
+                        div.question-item
+                            span.question-title 问：
+                            span.question-value 皮托管泵如何工作？
+                        div.question-item
+                            span.question-title 答：
+                            span.question-value 输送介质进入叶轮后随着叶轮高速旋转而获得动能，带有一定圆周速度的流体介质进入转毂腔室后产生了一定的压力能；有一定圆周速度和压力能的流体介质从皮托管入口流入，皮托管进口到出口过流面积逐渐增大，速度逐渐降低，最终将动能转化为了压力能；经过两次增压后泵产生的扬程远高于普通的单级叶轮离心泵。
+                        div.question-item
+                            span.question-title 问：
+                            span.question-value 皮托管泵的主要零部件？
+                        div.question-item
+                            span.question-title 答：
+                            span.question-value 进水段、外壳体、叶轮、转毂、皮托管、主轴、轴承箱部件、联轴器、电机、公用底座、轴封系统。
+                        div.question-item
+                            span.question-title 问：
+                            span.question-value 轴承部件中有哪些零件？
+                        div.question-item
+                            span.question-title 答：
+                            span.question-value 轴承箱体、泵轴、轴承、轴承压盖、防尘盘、恒位油杯、放气塞、放油塞。
+                        div.question-item
+                            span.question-title 问：
+                            span.question-value 皮托管泵工作中最忌讳汽蚀，产生汽蚀的原因有多少？
+                        div.question-item
+                            span.question-title 答：
+                            span.question-value 1、输送介质工艺特性引起输送介质温度过高，已经发生汽化或即将发生汽化现象，会导致泵汽蚀。输送介质流量不够、吸入不足的情况下也会导致泵入口处汽蚀。泵入口处介质压力过低，已经发生了汽化现象，导致汽蚀。
+                            span(style="margin-left:50px").question-value 2、入口管路中损失较大，如弯头、变径管、阀门、过滤器等装置过多引起吸入压力过低导致汽蚀。
+                            span(style="margin-left:50px").question-value 3、泵吸入口液位高度不够，吸入压力过低导致汽蚀。
+
+            .content-detail-right
+                .about-nav
+                    h4  栏目列表
+                    ul
+                        li
+                            a(href="../program/quality") 质保控制
+                        li
+                            a(href="../program/question") 常见问题
+                .hot-recommend
+                    h4 热点内容
+                    ul
+                        -for(var i = 0; i < hotRecommend.length; i++)
+                            li
+                                a(href="../news/detail?id=#{hotRecommend[i]._id}").title #{hotRecommend[i].title}
+                                span.title-date #{hotRecommend[i].formatCreatedTime}
+
+// 引入私有的js
+block js
