@@ -109,24 +109,10 @@ aside.main-sidebar
                         span.pull-right-container
                             i.fa.fa-angle-left.pull-fright
                     ul.treeview-menu
-                        -if (nav && nav == 'pump')
-                            li.active
-                                a(href='/admin/product?series=pump')
-                                    i.fa.fa-circle-o
-                                    | 泵类产品管理
-                            li
-                                a(href='/admin/product?series=seal')
-                                    i.fa.fa-circle-o
-                                    | 密封产品管理
-                        -else
-                            li
-                                a(href='/admin/product?series=pump')
-                                    i.fa.fa-circle-o
-                                    | 泵类产品管理
-                            li.active
-                                a(href='/admin/product?series=seal')
-                                    i.fa.fa-circle-o
-                                    | 密封产品管理
+                        li.active
+                            a(href='/admin/product?series=seal')
+                                i.fa.fa-circle-o
+                                | 密封产品管理
             -else
                 li.treeview
                     a(href='#')
@@ -135,10 +121,6 @@ aside.main-sidebar
                         span.pull-right-container
                             i.fa.fa-angle-left.pull-fright
                     ul.treeview-menu
-                        li
-                            a(href='/admin/product?series=pump')
-                                i.fa.fa-circle-o
-                                | 泵类产品管理
                         li
                             a(href='/admin/product?series=seal')
                                 i.fa.fa-circle-o
