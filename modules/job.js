@@ -11,7 +11,7 @@ export default class {
             jobDemand: String, // 工作要求
             author: {
                 type: String,
-                default: '伊尔流体设备人事部'
+                default: '重庆博格曼人事部'
             }, // 工作类型
             jobType: {
                 type: String,

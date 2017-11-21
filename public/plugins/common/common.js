@@ -572,7 +572,7 @@
 	}();
 
 	if (window.console && window.console.log) {
-		console.log('伊尔流体设备制造有限公司欢迎您的加入。' + "\n");
+		console.log('重庆博格曼密封件有限公司欢迎您的加入。' + "\n");
 		console.log('职位列表：'+"http://cqyir.com/join");
 	}
 })();
