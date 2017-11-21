@@ -7,3 +7,4 @@ npm-debug.log
 
 # 忽略编译后的CSS文件
 public/css/
+public/images/
